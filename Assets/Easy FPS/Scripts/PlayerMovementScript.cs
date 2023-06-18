@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovementScript : MonoBehaviour {
+public class PlayerMovementScript : MonoBehaviour { 
 	Rigidbody rb;
 
 	[Tooltip("Current players speed")]
