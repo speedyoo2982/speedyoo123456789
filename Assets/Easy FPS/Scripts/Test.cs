@@ -8,8 +8,11 @@ public class Test : MonoBehaviour
 
     float RandomX = 0;
     float RandomZ = 0;
-    float MonsterSpawnTime = 2f;
+    float MonsterSpawnTime = 1.5f;
     float Monster_Time = 0;
+
+    public int MonsterCount = 0;
+    public int MonsterMaxCount = 100;
 
     bool no = false;
 
@@ -20,7 +23,6 @@ public class Test : MonoBehaviour
     {
         StartCoroutine(test1());
         StartCoroutine(test());
-        StartCoroutine(MonsterSpawn());
     }
 
     // Update is called once per frame
@@ -29,7 +31,10 @@ public class Test : MonoBehaviour
         Monster_Time += Time.deltaTime;
         if (Monster_Time > MonsterSpawnTime) 
         {
-            StartCoroutine(MonsterSpawn());
+            if(MonsterMaxCount>MonsterCount)
+            {
+                StartCoroutine(MonsterSpawn());
+            }
             Monster_Time = 0;
         }
         int aee = 0;
@@ -47,6 +52,7 @@ public class Test : MonoBehaviour
     {
         random();
         Instantiate(Monster, new Vector3(RandomX, 3.4f,RandomZ),new Quaternion());
+        MonsterCount += 1;
         
         yield return null;
     }

@@ -4,77 +4,57 @@ using UnityEngine;
 
 public class MonsterPatten : MonoBehaviour
 {
-
-    public GameObject Monster;
     float PositionX = 0;
     float PositionZ = 0;
-    float randompositionX = 0;
-    float randompositionZ = 0;
-    float speed = 0.5f;
-    
+    float randompositionX1 = 0;
+    float randompositionX2 = 0;
+    float randompositionZ1 = 0;
+    float randompositionZ2 = 0;
+    float speedX = 0;
+    float speedZ = 0;
+    public float MonsterSpeed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        PositionX = Monster.transform.position.x;
-        PositionZ = Monster.transform.position.z;
+        StartCoroutine(random());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(random());
-        if (PositionX > randompositionX)
+        PositionX = transform.position.x;
+        PositionZ = transform.position.z;
+
+        if (PositionX > randompositionX1)
         {
-            speed = -speed;
+            speedX = -MonsterSpeed;
         }
-        else if (PositionX < randompositionX)
+        else if (PositionX < randompositionX2)
         {
-            speed = -speed;
+            speedX = MonsterSpeed;
         }
-        if (PositionZ > randompositionZ)
+        if (PositionZ > randompositionZ1)
         {
-            speed = -speed;
+            speedZ = -MonsterSpeed;
         }
-        else if (PositionZ < randompositionZ)
+        else if (PositionZ < randompositionZ2)
         {
-            speed = -speed;
+            speedZ = MonsterSpeed;
         }
-        Monster.transform.position += new Vector3(speed, 0, speed);
+        transform.position += new Vector3(speedX, 0, speedZ);
     }
 
     IEnumerator random()
     {
-        randompositionX = Random.Range(-10, 10);
-        randompositionZ = Random.Range(-10, 10);
+        randompositionX1 = Random.Range(0, 500);
+        randompositionX2 = Random.Range(-500, 0);
+        randompositionZ1 = Random.Range(0, 500);
+        randompositionZ2 = Random.Range(-500, 0);
         yield return null;
     }
 
-    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Bullet")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-
-    //   }
 }
+
