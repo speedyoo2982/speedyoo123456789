@@ -52,8 +52,7 @@ public class Test : MonoBehaviour
     {
         random();
         Instantiate(Monster, new Vector3(RandomX, 3.4f,RandomZ),new Quaternion());
-        MonsterCount += 1;
-        
+        MonsterCount += 1;        
         yield return null;
     }
 

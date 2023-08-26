@@ -16,11 +16,13 @@ public class BulletScript : MonoBehaviour {
 	public LayerMask ignoreLayer;
 
 	public Test test_;
-	public int MonsterHealth = 100;
+	public MonsterPatten MonsterPatten_;
+	public UI UI_;
 
 	private void Start()
     {
         test_= GameObject.FindObjectOfType<Test>();
+		
 	}
 
     /*
@@ -44,12 +46,22 @@ public class BulletScript : MonoBehaviour {
 				{
 					Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					Destroy(gameObject);
-					Destroy(hit.transform.gameObject);
+					UI_ = GameObject.FindObjectOfType<UI>();
+					MonsterPatten_ = hit.transform.gameObject.GetComponent<MonsterPatten>();
+					MonsterPatten_.Health -= 50;
+					Debug.Log("아야"+MonsterPatten_.Health);
+					if (MonsterPatten_.Health<=0)
+                    {
+						Debug.Log("죽음");
+						UI_.Score += 1;
+						Destroy(hit.transform.gameObject);
+						
+
+					}					
 				}
 			}		
 			Destroy(gameObject);
 		}
 		Destroy(gameObject, 0.1f);
 	}
-
 }

@@ -11,6 +11,7 @@ TagManager:
   - Monster
   - Bullet
   - test
+  - UI
   layers:
   - Default
   - TransparentFX

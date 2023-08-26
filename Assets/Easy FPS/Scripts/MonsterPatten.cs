@@ -12,7 +12,10 @@ public class MonsterPatten : MonoBehaviour
     float randompositionZ2 = 0;
     float speedX = 0;
     float speedZ = 0;
-    public float MonsterSpeed = 0.1f;
+    public float MonsterSpeed = 0.2f;
+    public int Health = 100;
+
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,7 @@ public class MonsterPatten : MonoBehaviour
         yield return null;
     }
 
-
-
+   
+   
 }
 

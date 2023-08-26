@@ -125,3 +125,6 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 0
+  test_: {fileID: 0}
+  MonsterPatten_: {fileID: 0}
+  UI_: {fileID: 0}
